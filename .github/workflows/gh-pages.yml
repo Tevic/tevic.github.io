@@ -10,7 +10,6 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@gh-pages
     - name: Clean
       uses: heowc/action-hexo@master
       with:
