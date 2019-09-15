@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@gh-pages
-      
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
@@ -28,7 +26,7 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           # set git infomation
           git config --global user.name 'tevic'
-          git config --global user.email 'tevic.tt@gmail.com'
+          git config --global user.email 'tevic@users.noreply.github.com''
           # install dependencies
           npm i -g hexo-cli
           npm i
