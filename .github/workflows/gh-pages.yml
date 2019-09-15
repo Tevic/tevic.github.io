@@ -1,6 +1,9 @@
-on: push
-  branches:    
-    - gh-pages
+name: Build and Update Github Pages
+
+on:
+  push:
+    branches:
+      - gh-pages
 
 name: Deploy
 jobs:
