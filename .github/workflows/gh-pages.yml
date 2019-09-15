@@ -1,27 +1,33 @@
 name: Build and Update Github Pages
 
 on:
-  push:
+push:
     branches:
-      - gh-pages
+    - gh-pages
 
 jobs:
-  build:
-    name: Build
+build:
+    - name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Clean
-      uses: heowc/action-hexo@master
-      with:
-        args: clean
-    - name: Generate
-      uses: heowc/action-hexo@master
-      with:
-        args: generate
-    - name: Deploy
-      uses: heowc/action-hexo@master
-      env:
-        EMAIL: tevic.tt@gmail.com
-        NAME: tevic
-      with:
-        args: deploy
+    - uses: actions/checkout@v1
+    - name: Use Node.js 10.x
+    uses: actions/setup-node@v1
+    with:
+        node-version: '10.x'
+    - name: prepare build env
+    env:
+        ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
+    run: |
+        mkdir -p ~/.ssh/
+        echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.name 'tevic'
+        git config --global user.email 'tevic@users.noreply.github.com'
+        npm i -g hexo-cli
+        npm i
+    env:
+        HEXO_ALGOLIA_INDEXING_KEY: ${{secrets.HEXO_ALGOLIA_INDEXING_KEY}}
+    run: |
+        hexo generate && hexo algolia && hexo deploy
