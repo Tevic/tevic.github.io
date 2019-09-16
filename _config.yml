@@ -74,6 +74,11 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+theme_config:
+  menu:
+    home: / || home
+    archives: /archives/ || archive
+    about: /about/ || user
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
