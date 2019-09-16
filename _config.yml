@@ -79,7 +79,7 @@ theme_config:
     home: / || home
     archives: /archives/ || archive
     about: /about/ || user
-  scheme: Gemini
+  # scheme: Gemini
   avatar:
     url: /images/avatar.jpg
     rounded: true
