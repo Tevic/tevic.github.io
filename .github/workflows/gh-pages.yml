@@ -10,14 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      
+      - name: Git Checkout
+        uses: actions/checkout@v1
+
+      - name: Git Submodules Init
+        uses: chris-short/github-action-git-submodules@v0.1.0
+
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
 
-      - name: Setup Hexo env
+      - name: Setup Hexo
         env:
           ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
         run: |
