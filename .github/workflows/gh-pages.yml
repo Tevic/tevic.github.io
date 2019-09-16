@@ -34,8 +34,6 @@ jobs:
           git config --global user.email 'tevic@users.noreply.github.com'
           # install dependencies
           npm install -g hexo-cli
-          # install pandoc
-          npm install hexo-renderer-pandoc --save
           npm i
 
       - name: Deploy
