@@ -11,13 +11,12 @@ jobs:
 
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v1
-
-      - name: Git Submodules Init
-        uses: chris-short/github-action-git-submodules@v0.1.0
+        uses: actions/checkout@master
+        with:
+          submodules: true
 
       - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@master
         with:
           node-version: "10.x"
 
