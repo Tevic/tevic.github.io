@@ -79,6 +79,14 @@ theme_config:
     home: / || home
     archives: /archives/ || archive
     about: /about/ || user
+  scheme: Gemini
+  avatar:
+    url: /images/avatar.jpg
+    rounded: true
+  social:
+    GitHub: https://github.com/tevic || github
+    E-Mail: mailto:tevic.tt@gmail.com || envelope
+    Unsplash: https://unsplash.com/@tevic || instagram
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
