@@ -16,7 +16,7 @@ jobs:
           submodules: true
 
       - name: Use Node.js 10.x
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v1.2.0
         with:
           node-version: "10.x"
 
@@ -33,14 +33,11 @@ jobs:
           git config --global user.name 'tevic'
           git config --global user.email 'tevic@users.noreply.github.com'
           # install dependencies
-          npm i -g hexo-cli
-          npm i
+          npm install -g hexo-cli
           # install pandoc
-          # curl -s -L https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz | tar xvzf - -C $RUNNER_TOOL_CACHE/
+          npm install hexo-renderer-pandoc --save
+          npm i
 
       - name: Deploy
         run: |
-          # add pandoc to PATH
-          # export PATH="$PATH:$RUNNER_TOOL_CACHE/pandoc-2.7.3/bin"
-          # publish
           hexo clean && hexo generate && hexo deploy
