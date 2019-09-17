@@ -87,6 +87,12 @@ theme_config:
     GitHub: https://github.com/tevic || github
     E-Mail: mailto:tevic.tt@gmail.com || envelope
     Unsplash: https://unsplash.com/@tevic || instagram
+  local_search:
+    enable: true
+    trigger: auto
+    top_n_per_article: 1
+    unescape: false
+    preload: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
